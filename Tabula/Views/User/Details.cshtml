@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Personal details";
+}
+
+@model User
+
+<link rel="stylesheet" type="text/css" href="~/css/modal.css">
+
+<div class="container col-md-12">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 mt-5">
+            <div class="text-center">
+                @Html.ValidationMessage("error", "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <div>
+                    <h2>Firstname</h2>
+                </div>
+                <div>
+                    <span>@Model.firstname</span>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <h2>Lastname</h2>
+                </div>
+                <div>
+                    <span>@Model.lastname</span>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <h2>Username</h2>
+                </div>
+                <div>
+                    <span>@Model.username</span>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <h2>Email</h2>
+                </div>
+                <div>
+                    <span>@Model.email</span>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <h2>Date of birth</h2>
+                </div>
+                <div>
+                    <span>@Model.dateOfBirth.ToString("dd-MM-yyyy")</span>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <h2>Created at</h2>
+                </div>
+                <div>
+                    <span>@Model.createdAt</span>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <button id="@("changeEmail")"><i class="fa fa-exchange" aria-hidden="true"></i>Change email</button>
+                </div>
+                <div>
+                    <button id="@("changePassword")"><i class="fa fa-exchange" aria-hidden="true"></i>Change password</button>
+                </div>
+            </div>
+
+            <div id="partial"></div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="~/js/user.js"></script>
+
+<script>
+    let changeEmailUrl =    '@Url.Action("ChangeEmail", "Details")';
+    let changePasswordUrl = '@Url.Action("ChangePassword", "Details")';
+
+    SetClicks();
+</script>

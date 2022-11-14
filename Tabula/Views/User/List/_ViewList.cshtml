@@ -1,0 +1,58 @@
+﻿<link rel="stylesheet" type="text/css" href="~/css/form.css" />
+<link rel="stylesheet" type="text/css" href="~/lib/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="~/lib/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+@model List
+
+<div id="modal" class="modal open" data-modal="viewList">
+    <article class="content-wrapper">
+        <button id="close" class="close"></button>
+        <header class="modal-header">
+            <h2>View list (@Model.name)</h2>
+        </header>
+        <div class="content mt-3">
+            <form class="custom-form validate-form">
+
+                <div class="text-center">
+                    <div>
+                        <h5>Created at:</h5>
+                    </div>
+                    <div>
+                        <span>@Model.createdAt</span>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div>
+                        <h5>Updated at:</h5>
+                    </div>
+                    <div>
+                        <span>
+                            @{
+                                if (Model.updatedAt.Year == 1)
+                                {
+                                    <span>-</span>
+                                }
+                                else
+                                {
+                                    <span>@Model.updatedAt</span>
+                                }
+                            }
+                        </span>
+                    </div>
+                </div>
+
+                <div class="custom-wrap-input validate-input mt-3">
+                    <input class="custom-input" type="text" minlength="2" name="listname" placeholder="Listname" value="@Model.name" disabled>
+                    <span class="focus-custom-input"></span>
+                    <span class="symbol-custom-input">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </article>
+</div>
+
+<script src="~/js/modal.js" type="text/javascript"></script>

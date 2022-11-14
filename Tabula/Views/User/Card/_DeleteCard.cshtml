@@ -1,0 +1,40 @@
+﻿<link rel="stylesheet" type="text/css" href="~/css/form.css" />
+<link rel="stylesheet" type="text/css" href="~/lib/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="~/lib/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+@{
+    var listname = ViewData["listName"];
+}
+
+@model Card
+
+<div id="modal" class="modal open" data-modal="deleteCard">
+    <article class="content-wrapper">
+        <button id="close" class="close"></button>
+        <header class="modal-header">
+            <h2>Delete (@Model.name) in @listname</h2>
+        </header>
+        <div class="content mt-3">
+            <form class="custom-form validate-form" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="text-center">
+                    <div>
+                        <span>Are you sure?</span>
+                    </div>
+                </div>
+
+                <footer>
+                    <div class="container-form-btn">
+                        <button class="custom-form-btn action" asp-controller="Card" asp-action="DeleteCurrentCard">
+                            Yes
+                        </button>
+                    </div>
+                </footer>
+            </form>
+        </div>
+    </article>
+</div>
+
+<script src="~/js/modal.js" type="text/javascript"></script>

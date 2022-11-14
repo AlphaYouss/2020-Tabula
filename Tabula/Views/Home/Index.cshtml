@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<div class="text-center">
+    <h1>Welcome</h1>
+    <input type="button" value="Login" onclick="@("window.location.href='" + @Url.Action("Index", "Login") + "'");" />
+    <input type="button" value="Register" onclick="@("window.location.href='" + @Url.Action("Index", "Register") + "'");" />
+</div>
